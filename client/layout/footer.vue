@@ -1,7 +1,7 @@
 
 <template>
   <div id="footer">
-      <span>Written by Jasonccj</span>
+    <span>Written by Jasonccj</span>
   </div>
 </template>
 

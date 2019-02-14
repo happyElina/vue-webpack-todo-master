@@ -1,13 +1,16 @@
 <template>
-    <div :class="['todo-item',todo.completed ? 'completed': '']">
-        <input
-            type="checkbox"
-            class="toggle"
-            v-model="todo.completed"
-        >
-        <label>{{todo.content}}</label>
-        <button class="destory" @click="deleteTodo"></button>
-    </div>
+  <div :class="['todo-item',todo.completed ? 'completed': '']">
+    <input
+      v-model="todo.completed"
+      type="checkbox"
+      class="toggle"
+    >
+    <label>{{ todo.content }}</label>
+    <button
+      class="destory"
+      @click="deleteTodo"
+    />
+  </div>
 </template>
 
 <script>

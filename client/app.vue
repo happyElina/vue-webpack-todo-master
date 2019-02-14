@@ -1,10 +1,10 @@
 <template>
-    <div id="app">
-        <div id="cover"></div>
-        <Header></Header>
-        <Todo></Todo>
-        <Footer></Footer>
-    </div>
+  <div id="app">
+    <div id="cover" />
+    <Header />
+    <Todo />
+    <Footer />
+  </div>
 </template>
 
 <script>

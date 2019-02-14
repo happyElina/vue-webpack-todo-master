@@ -1,4 +1,5 @@
 const path = require('path')                            //path是Nodejs中的基本包,用来处理路径
+const vueLoaderOptions = require('./vue-loader.config')
 // const HTMLPlugin = require('html-webpack-plugin')       //引入html-webpack-plugin
 // const webpack = require("webpack")                      //引入webpack
 // const ExtractPlugin = require("extract-text-webpack-plugin") //插件与 webpack 4 不太兼容 使用mini-css-extract-plugin替代
@@ -18,7 +19,9 @@ const config =
         rules:[                                         //所以针对不同类型的文件,我们定义不同的识别规则,最终目的都是打包成js文件
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'                    //处理.vue文件
+                loader: 'vue-loader',                   //处理.vue文件
+                options: vueLoaderOptions(isDev)
+
             },
             {
                 test: /\.jsx$/,

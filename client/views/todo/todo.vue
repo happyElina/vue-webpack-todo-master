@@ -1,25 +1,25 @@
 <template>
-    <section class="real-app">
-        <input
-            type="text"
-            class="add-input"
-            autofocus="autofocus"
-            placeholder="接下去要做什么?"
-            @keyup.enter="addTodo"
-        >
-        <Item
-            :todo="todo"
-            v-for="todo in filteredTodos"
-            :key="todo.id"
-            @del="deleteTodo"
-        />
-        <Tabs
-            :filter="filter"
-            :todos="todos"
-            @togole="togoleFilter"
-            @clearAllCompleted="clearAllCompleted"
-        ></Tabs>
-    </section>
+  <section class="real-app">
+    <input
+      type="text"
+      class="add-input"
+      autofocus="autofocus"
+      placeholder="接下去要做什么?"
+      @keyup.enter="addTodo"
+    >
+    <Item
+      v-for="todo in filteredTodos"
+      :key="todo.id"
+      :todo="todo"
+      @del="deleteTodo"
+    />
+    <Tabs
+      :filter="filter"
+      :todos="todos"
+      @togole="togoleFilter"
+      @clearAllCompleted="clearAllCompleted"
+    />
+  </section>
 </template>
 
 <script>
@@ -28,15 +28,15 @@ import Tabs from './tabs.vue'
 let id = 0
 
 export default {
+    components:{
+        Item,
+        Tabs
+    },
     data() {
         return {
             todos: [],
             filter: 'all'
         }
-    },
-    components:{
-        Item,
-        Tabs
     },
     computed: {
         filteredTodos(){

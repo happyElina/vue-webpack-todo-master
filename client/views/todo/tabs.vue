@@ -1,18 +1,25 @@
 <template>
-    <div class="helper">
-        <span class="left">{{unFinishedTodoLength}} items left</span>
-        <span class="tabs">
-            <span
-                v-for="state in states"
-                :key="state"
-                :class="[state, filter === state ? 'actived' : '']"
-                @click="toggleFilter(state)"
-            >
-                {{state}}
-            </span>
-        </span>
-        <span class="clear" @click="clearAllCompleted">Clear completed</span>
-    </div>
+  <div class="helper">
+    <span class="left">
+      {{ unFinishedTodoLength }} items left
+    </span>
+    <span class="tabs">
+      <span
+        v-for="state in states"
+        :key="state"
+        :class="[state, filter === state ? 'actived' : '']"
+        @click="toggleFilter(state)"
+      >
+        {{ state }}
+      </span>
+    </span>
+    <span
+      class="clear"
+      @click="clearAllCompleted"
+    >
+      Clear completed
+    </span>
+  </div>
 </template>
 
 <script>
@@ -32,17 +39,17 @@ export default {
             states: ['all','active','completed']
         }
     },
+    computed:{
+        unFinishedTodoLength(){
+            return this.todos.filter(todo => !todo.completed).length;
+        }
+    },
     methods:{
         toggleFilter(state){
             this.$emit('togole',state)
         },
         clearAllCompleted(){
             this.$emit('clearAllCompleted')
-        }
-    },
-    computed:{
-        unFinishedTodoLength(){
-            return this.todos.filter(todo => !todo.completed).length;
         }
     }
 }
