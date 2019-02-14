@@ -5,6 +5,7 @@
 特此分享
 
 几个印象深刻的改动：
+
 1、 extract-text-webpack-plugin  webpack4不兼容，用mini-css-extract-plugin代替
 
 2、 css-loader 用1.0.0 版本，不然一直报错 什么minimise不可配置  CSS Loader Invalid Options
