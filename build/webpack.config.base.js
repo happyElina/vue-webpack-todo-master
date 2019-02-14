@@ -16,7 +16,13 @@ const config =
         path: path.join(__dirname,'../dist')               //bundle.js保存的位置
     },
     module:{                                            //因为webpack只能处理js文件,且只识别ES5的语法
-        rules:[                                         //所以针对不同类型的文件,我们定义不同的识别规则,最终目的都是打包成js文件
+        rules:[
+            {
+             test: /\.(vue|js|jsx)$/,
+             loader: 'eslint-loader',
+             exclude: /node_modules/,
+             enforce: 'pre'  // 在处理这几个文件类型之前，先用eslint 检测，如果报错就不继续vue-loader  enforce 可能有pre  post 
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',                   //处理.vue文件
