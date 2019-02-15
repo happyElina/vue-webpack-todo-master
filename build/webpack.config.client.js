@@ -102,7 +102,22 @@ if(isDev){
         // optimization.runtimeChunk 就是告诉 webpack 是否要把这部分单独打包出来.
         // 就是确保未更改的模块打包的hash 不变
         // https://segmentfault.com/q/1010000014954264
+        // 引入大的包，比如说第三方库可能会引起问题，有更多的配置项
       },
+      // 排除大的第三方，使用CDN暴露在window下，require（XXX）=> window.XXX
+      //     externals: {
+      //   '@plugin/index': 'index',
+      //   'jquery': 'jQuery',
+      //   'vue': 'Vue',
+      //   'vue-router': 'VueRouter',
+      //   'vuex':'Vuex',
+      //   'axios': 'axios',
+      //   'element-ui':'ELEMENT',
+      //   'moment': 'moment',
+      //   'highcharts/highstock': 'Highcharts',
+      //   'highlight.js': 'hljs'
+      // },
+      //  webpack-bundle-analyzer 可以很好的展现打包的js结构和大小
       plugins: defaultPlugins.concat([
          new MiniCssExtractPlugin({
            filename: "[name].css",
