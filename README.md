@@ -1,5 +1,7 @@
 #本项目都是基于 https://github.com/Jasonccj/vue-webpack-todo  来做的
 在此感谢 Jasonccj 的辛勤整理
+该项目是基于慕课网 Vue+Webpack打造todo应用 来整理的
+后续的升级课程是  Vue核心技术 Vue+Vue-Router+Vuex+SSR实战精讲
 
 由于我学习慕课网上这门课时webpack已经升级到4以上了，所以下载以上项目以后 在本地运行困难重重，花了一些时间升级到webpack4
 特此分享

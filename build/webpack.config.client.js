@@ -96,7 +96,12 @@ if(isDev){
           chunks: 'all'
         },
         runtimeChunk: true
-        // runtime 指的是 webpack 的运行环境(具体作用就是模块解析, 加载) 和 模块信息清单, 模块信息清单在每次有模块变更(hash 变更)时都会变更, 所以我们想把这部分代码单独打包出来, 配合后端缓存策略, 这样就不会因为某个模块的变更导致包含模块信息的模块(通常会被包含在最后一个 bundle 中)缓存失效. optimization.runtimeChunk 就是告诉 webpack 是否要把这部分单独打包出来.
+        // runtime 指的是 webpack 的运行环境(具体作用就是模块解析, 加载) 和 模块信息清单,
+        //模块信息清单在每次有模块变更(hash 变更)时都会变更, 所以我们想把这部分代码单独打包出来, 配合后端缓存策略,
+        //这样就不会因为某个模块的变更导致包含模块信息的模块(通常会被包含在最后一个 bundle 中)缓存失效.
+        // optimization.runtimeChunk 就是告诉 webpack 是否要把这部分单独打包出来.
+        // 就是确保未更改的模块打包的hash 不变
+        // https://segmentfault.com/q/1010000014954264
       },
       plugins: defaultPlugins.concat([
          new MiniCssExtractPlugin({

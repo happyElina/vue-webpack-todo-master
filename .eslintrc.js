@@ -17,6 +17,6 @@ module.exports = {
 
       //require the use of === and !==
       "eqeqeq" : 0,
-      "one-var": 0,
+      "one-var": 0
   }
 };
