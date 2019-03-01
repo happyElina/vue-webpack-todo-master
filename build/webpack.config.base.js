@@ -13,7 +13,8 @@ const config =
     entry: path.join(__dirname,'../client/index.js'),         //声明js文件入口,__dirname就是我们文件的根目录,用join拼接
     output:{                                            //声明出口文件
         filename: 'bundle.js',                          //将挂载的App全部打包成一个bundle.js,在浏览器中可以直接运行的代码
-        path: path.join(__dirname,'../dist')               //bundle.js保存的位置
+        path: path.join(__dirname,'../dist'),               //bundle.js保存的位置
+        publicPath: '/public/'
     },
     module:{                                            //因为webpack只能处理js文件,且只识别ES5的语法
         rules:[
