@@ -1,6 +1,7 @@
 import Vue from 'vue' // 引用vue类库
 import VueRouter from 'vue-router'
 import App from './app.vue'
+import Vuex from 'vuex'
 
 // import './assets/styles/test.css'
 // import './assets/styles/test-stylus.styl'
@@ -9,11 +10,13 @@ import App from './app.vue'
 
 import './assets/styles/global.styl'
 import createRouter from './config/router'
-import store from './store/store'
+import createStore from './store/store'
 
 Vue.use(VueRouter)
+Vue.use(Vuex)
 
 const router =  createRouter()
+const store = createStore()
 
 // const root = document.createElement('div') // 创建div节点
 // document.body.appendChild(root) // 将div节点添加到body下
