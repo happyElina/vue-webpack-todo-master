@@ -17,6 +17,14 @@ export default {
     components: {
         Header,
         Footer
+    },
+    mounted() {
+      console.log(this.$store)
+    },
+    computed() {
+      count () {
+        return this.$store.state.count
+      }
     }
 }
 </script>
